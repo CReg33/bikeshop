@@ -1,0 +1,29 @@
+body {
+  font-family: "Darker Grotesque", sans-serif;
+  padding: 0;
+}
+a,
+a:hover,
+i {
+  color: white;
+  text-decoration: none;
+}
+a img {
+  margin-right: 10px;
+}
+#picture-header {
+  background-image: url("/images/rayvolt-background.png");
+  background-size: cover;
+  background-position: center;
+  height: 150px;
+  margin-bottom: 20px;
+}
+.card {
+  margin-bottom: 20px;
+}
+.basket-img {
+  width: 170px;
+}
+.basket-text {
+  padding-left: 20px;
+}
