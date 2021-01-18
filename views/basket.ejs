@@ -49,12 +49,7 @@
     </tr>
   </thead>
   <tbody>
-    <% 
-      <!-- line total -->
-      var total = 0; 
-      <!-- order total -->
-      var totalCmd = 0; 
-      for (var i=0; i< dataCardBike.length;i++) {%>
+    <% for (var i=0 ; i< dataCardBike.length ; i++ ) {%>
       <tr>
         <th scope="row"><%=i%></th>
         <td><img src=<%=dataCardBike[i].url%> alt=<%= dataCardBike[i].name%> class="basket-img"></td>
@@ -67,15 +62,10 @@
           </form>
         </td>
         <td><%= dataCardBike[i].price%></td>
-        <!-- line total calculation -->
-        <% total = dataCardBike[i].price * dataCardBike[i].quantity;
-        <!-- adding to total order -->
-        totalCmd += total; %>
-        <td><%= total %></td>
+        <td><%= dataCardBike[i].price * dataCardBike[i].quantity %></td>
         <td><a href="/delete-shop?<%=i%>" class="btn btn-primary"><i class="fas fa-trash-alt"></i></a></td>
       </tr>
     <%}%>
-
   </tbody>
   <tfoot>
     <tr>
@@ -83,8 +73,33 @@
       <td></td>
       <td></td>
       <td></td>
-      <td>Total Basket :</td>
-      <td><%= totalCmd %> €</td>
+      <td>Products total :</td>
+      <td><%= productTotal  %> €</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td>Delivery fees :</td>
+      <td><%= deliveryTotal %> €</td>
+      <% 
+      if (productTotal > 2000 && productTotal < 4000) { %>
+        <td>Delivery -50%</td>
+      <% } else if (productTotal > 4000) {%>
+        <td>Free delivery</td>
+      <%} else {%>
+      <td></td>
+      <%}%>
+    </tr>
+    <tr>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td>Grand total :</td>
+      <td><%= grandTotal %> €</td>
       <td></td>
     </tr>
     <tr>
@@ -98,8 +113,7 @@
     </tr>
   </tfoot>
 </table>
-<%} %>
-
+<% } %>
  <!-- scripts -->
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 <script src="/javascripts/script.js"></script>
